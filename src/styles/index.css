@@ -1,0 +1,76 @@
+.greenButton{
+    background-color: #DFEDD5;    
+
+}
+
+.blueButton{
+    background-color: #D4E3FC;
+}
+
+.blueLinks{
+    color:#007bff;
+}
+
+
+.buttonHeight{
+    height: 42px
+}
+
+a{
+  background-image: none;
+  cursor: pointer;
+  
+}
+
+.textDecorationGreen{
+    color: #28A745 !important;
+    text-decoration: underline;   
+}
+
+.textDecoration{
+    text-decoration: underline;   
+}
+  
+  
+.gradient{
+  background-image: linear-gradient(#E9ECEF, #FFFFFF);
+}
+
+.btnRED{
+    background-color:#ff000000;
+    border-color: #ff0000c7 !important;
+    
+}
+
+.btnColor{
+    background-color: #007296;
+    border-color: #007296;
+    color:white;
+}
+
+.tagsCol1{
+    background-color: #fff;
+    border:1px solid #CCCCCC;
+}
+.tagsCol2{
+     background-color: #fff;
+    border:1px solid #CCCCCC;
+}
+.tagsCol3{
+     background-color: #fff;
+    border:1px solid #CCCCCC;
+}
+.tagsCol4{
+    background-color: #fff;
+    border:1px solid #CCCCCC;
+}
+
+.options-component{
+     background-color: white;
+        z-index: 20;
+}
+
+
+.gradientFooter{
+  background-image: linear-gradient(#FFFFFF,#E9ECEF);
+}

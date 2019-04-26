@@ -5,6 +5,8 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@breathecode/breathecode-react-components": "^1.0.2",
+    "@breathecode/ui-components": "^1.0.85",
     "gatsby": "^2.3.31",
     "gatsby-image": "^2.0.40",
     "gatsby-plugin-manifest": "^2.0.29",
@@ -13,12 +15,15 @@
     "gatsby-plugin-sharp": "^2.0.35",
     "gatsby-source-filesystem": "^2.0.32",
     "gatsby-transformer-sharp": "^2.1.18",
+    "moment": "^2.24.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-helmet": "^5.2.0"
+    "react-helmet": "^5.2.0",
+    "react-router-dom": "^5.0.0"
   },
   "devDependencies": {
+    "bootstrap": "^4.3.1",
     "prettier": "^1.17.0"
   },
   "keywords": [
@@ -26,6 +31,7 @@
   ],
   "license": "MIT",
   "scripts": {
+    "c9": "gatsby develop -p $PORT -H $IP",
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write src/**/*.{js,jsx}",
