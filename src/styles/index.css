@@ -74,3 +74,15 @@ a{
 .gradientFooter{
   background-image: linear-gradient(#FFFFFF,#E9ECEF);
 }
+
+.author.badge{
+    font-size: 16px;
+}
+.bc-loading-bar{
+    position: fixed;
+    margin: auto;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    z-index: 1021;
+}

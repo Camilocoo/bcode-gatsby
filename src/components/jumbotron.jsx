@@ -5,9 +5,10 @@ import { Link } from "gatsby";
 
 export class Jumbotron extends React.Component {
 	render() {
+		const Title = this.props.jumbotronTitle;
 		return (
 			<div className={this.props.jumbotronClass}>
-				<h1 className={this.props.jumbotronTitleClass}>{this.props.jumbotronTitle}</h1>
+				<Title/>
 				<div className={this.props.jumboRowClass}>
 					<div className={this.props.firstColumnClass}>
 						<p className={this.props.pClassFirstCol}>{this.props.pHeaderFirstCol}</p>
@@ -67,6 +68,7 @@ export class Jumbotron extends React.Component {
 						</p>
 						<div className={this.props.buttonAlignCenterClassTwo}>
 							<Button
+								href="https://student.breatheco.de"
 								classNameButton={this.props.buttonColTwoClass}
 								buttonText={this.props.buttonColTwoText}
 								smallText={this.props.buttonSmallText}

@@ -1,6 +1,6 @@
 import React from "react";
 import { SmallJumbotron } from "../components/smalljumbo.jsx";
-import { Filter } from "@breathecode/ui-components";
+import { Filter, Loading } from "@breathecode/ui-components";
 import { Context } from "../store/appContext.jsx";
 import Store from "../store/appContext.jsx";
 import Navbar from "../components/navbar.jsx";
@@ -17,14 +17,14 @@ export class Lessons extends React.Component {
 		};
 	}
 
-	filterTags = l => {
+	filterByTags = l => {
 		if (this.state.selectedTags.length == 0) return true;
 		for (let i = 0; i < this.state.selectedTags.length; i++) {
 			if (l.tags.includes(this.state.selectedTags[i].value)) return true;
 		}
 		return false;
-	};
-	filterAuthors = l => {
+	}
+	filterByAuthors = l => {
 		if (this.state.selectedAuthors.length == 0) return true;
 		for (let i = 0; i < this.state.selectedAuthors.length; i++) {
 			if (l.authors == null) {
@@ -68,7 +68,7 @@ export class Lessons extends React.Component {
 																selectedTags: d
 															})
 														}
-														options={actions.filterTags(store.tags).map((tag, index) => {
+														options={actions.filterRepeated(store.tags).map((tag, index) => {
 															return {
 																label: tag,
 																value: tag
@@ -79,13 +79,13 @@ export class Lessons extends React.Component {
 												<div className="px-1 pl-1 py-2">
 													<Filter
 														label="Author"
-														placeholder="Author:"
+														placeholder="Filter by Author"
 														onChange={d =>
 															this.setState({
 																selectedAuthors: d
 															})
 														}
-														options={actions.filterTags(store.authors).map(author => {
+														options={actions.filterRepeated(store.authors).map(author => {
 															return {
 																label: author,
 																value: author
@@ -99,9 +99,9 @@ export class Lessons extends React.Component {
 									</div>
 								</div>
 
-								{store.lessons
-									.filter(this.filterAuthors)
-									.filter(this.filterTags)
+								{store.lessons === 0 ? <Loading /> : store.lessons
+									.filter(this.filterByAuthors)
+									.filter(this.filterByTags)
 									.map((lesson, index) => {
 										return (
 											<div className="container" key={index}>
@@ -109,15 +109,18 @@ export class Lessons extends React.Component {
 													<div className="col-12  py-3">
 														<div className="pl-3">
 															<a
+																target="_blank"
 																className="h2 text-dark btn-default"
-																href={actions.lessonUrl(lesson.slug)}>
+																href={actions.lessonUrl(lesson)}>
 																{lesson.title}
 															</a>
 															<div className="row">
 																<div className="col py-2 text-dark">
-																	{lesson.authors
-																		? "Contributors: " + "@" + lesson.authors
-																		: " "}
+																	{lesson.authors && "Contributors: "}
+																	{lesson.authors && lesson.authors.map(a => (<a 
+																		href={`https://github.com/${a}`}
+																		target="_blank"
+																		class="author badge badge-pill badge-light mr-2">@{a}</a>))}
 																</div>
 															</div>
 															<p className="lead text-dark ">{lesson.subtitle}</p>

@@ -3,6 +3,8 @@ import getState from "./store.js";
 
 export const Context = React.createContext(null);
 
+const HOST = 'https://assets.breatheco.de/apis/';
+
 const Store = PassedComponent => {
 	class StoreWrapper extends React.Component {
 		constructor(props) {
@@ -17,19 +19,20 @@ const Store = PassedComponent => {
 		}
 
 		componentDidMount() {
-			fetch("http://assets.breatheco.de/apis/lesson/all/v2?status=published")
+			fetch(HOST+"lesson/all/v2?status=published,draft")
 				.then(res => res.json())
 				.then(lessons => {
 					let { store } = this.state;
 					store.lessons = lessons;
-					store.tags = lessons.map(l => l.tags).flat();
+					store.tags = lessons.map(l => l.tags).flat().map(tag => this.state.actions.emojify(tag));
 					store.authors = lessons.map(l => l.authors).flat();
 					this.setState({
 						store
 					});
-				});
+				})
+				.catch(err => console.error(err));
 
-			fetch("http://assets.breatheco.de/apis/event/all?status=published&location=downtown-miami&status=upcoming")
+			fetch(HOST+"event/all?status=published&location=downtown-miami&status=upcoming")
 				.then(res => res.json())
 				.then(events => {
 					let { store } = this.state;
@@ -37,7 +40,8 @@ const Store = PassedComponent => {
 					this.setState({
 						store
 					});
-				});
+				})
+				.catch(err => console.error(err));
 
 			fetch("https://raw.githubusercontent.com/breatheco-de/main-documentation/master/README.md")
 				.then(res => res.text())
@@ -47,16 +51,30 @@ const Store = PassedComponent => {
 					this.setState({
 						store
 					});
-				});
-			fetch("http://assets.breatheco.de/apis/github/issues/all")
+				})
+				.catch(err => console.error(err));
+			fetch("https://assets.breatheco.de/apis/github/issues/all")
 				.then(res => res.json())
 				.then(issues => {
 					let { store } = this.state;
 					store.issues = issues;
+					store.allIssues =  [];
+					for(let key in issues){
+					    const aux = store.allIssues.concat(issues[key]);
+					    store.allIssues = aux.map(i => Object.assign(i, { 
+					    	labels: i.labels.map((l => Object.assign(l, { 
+					    		name: this.state.actions.emojify(l.name) 
+					    	})))
+					    }));
+					    store.issueLabels = this.state.actions.filterRepeated(this.state.actions.getLabels(aux));
+					}
+					
+					
 					this.setState({
 						store
 					});
-				});
+				})
+				.catch(err => console.error(err));
 		}
 
 		render() {

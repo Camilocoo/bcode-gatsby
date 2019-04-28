@@ -7,15 +7,9 @@ export class Footer extends Component {
 		return (
 			<div>
 				<footer className="footer gradientFooter">
-					<div className="container-fluid pt-5">
-						<div className="row d-flex justify-content-around">
-							<div className="col-4 text-left">Contact Us</div>
-							<div className="col-4 text-center">Donations</div>
-							<div className="col-4 text-right">
-								<a>Spanish</a>
-								<br />
-								<a>English</a>
-							</div>
+					<div className="container pt-5">
+						<div className="row">
+							<div className="col-12 text-center"><a className="text-dark" href="mailto:info@breatheco.de">Contact Us</a></div>
 						</div>
 						<div className="row text-center">
 							<div className="col-12">

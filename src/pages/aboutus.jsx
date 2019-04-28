@@ -12,15 +12,6 @@ class AboutUs extends React.Component {
 		return (
 			<div>
 			<Navbar/>
-				<SmallJumbotron
-					jumboClass="jumbotron jumbotron-fluid mb-0 bg-white"
-					containerClass="pl-4  container-fluid"
-					headerClass="display-4 font-weight-bold  text-left"
-					headerText="About Breathecode"
-					spanClass="h3 text-secondary"
-					spanContent=".md"
-				/>
-
 				<p align="center">
 					<img src="https://assets.breatheco.de/apis/img/images.php?blob&random&cat=icon&tags=breathecode,128" />
 				</p>
@@ -28,7 +19,7 @@ class AboutUs extends React.Component {
 					{" "}
 					Welcome to BreatheCode{" "}
 				</h1>
-				<div className="px-5">
+				<div className="px-5 container">
 					<Context.Consumer>
 						{({ store, actions }) => {
 							return <MarkdownParser source={store.markdown} />;

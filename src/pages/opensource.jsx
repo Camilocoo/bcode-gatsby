@@ -1,6 +1,6 @@
 import React from "react";
 import { SmallJumbotron } from "../components/smalljumbo.jsx";
-import { Filter, Icon } from "@breathecode/ui-components";
+import { Filter, Icon, Loading } from "@breathecode/ui-components";
 import { Context } from "../store/appContext.jsx";
 import PropTypes from "prop-types";
 import moment from "moment";
@@ -48,7 +48,7 @@ export class OpenSource extends React.Component {
 														})
 													}
 													options={actions
-														.filterTags(actions.concatTechnologies(store.openSource))
+														.filterRepeated(actions.concatTechnologies(store.openSource))
 														.map(tech => {
 															return {
 																label: tech,
@@ -163,7 +163,8 @@ class IssueFetch extends React.Component {
 					isLoaded: true,
 					items: json
 				});
-			});
+			})
+			.catch(err => console.error(err));
 	}
 	render() {
 		let { isLoaded, items } = this.state;
@@ -173,6 +174,7 @@ class IssueFetch extends React.Component {
 		} else {
 			return (
 				<a
+					target="_blank"
 					href={this.props.issuesFunction(null, this.props.issueLink)}
 					className="btn d-flex btnRED text-danger rounded btn-sm mr-0 mr-md-5 mb-4 mb-sm-0 my-1">
 					<i className="fas fa-exclamation-triangle" />

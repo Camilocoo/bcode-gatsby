@@ -1,7 +1,10 @@
+import emoji from 'node-emoji';
+
 const getState = ({ getStore, setStore }) => {
 	return {
 		store: {
-			pupusito:"hola",
+		    allIssues:null,
+		    issueLabels:null,
 			issues: null,
 			authors: [],
 			tags: [],
@@ -296,13 +299,14 @@ const getState = ({ getStore, setStore }) => {
 					return finalUrl;
 				}
 			},
-			lessonUrl: slug => {
-				let fullLink = "https://docs.content.breatheco.de/lesson/" + slug;
+			lessonUrl: lesson => {
+				let fullLink = `https://content.breatheco.de/${lesson.lang}/lesson/` + lesson.slug.replace(".es","");
 				return fullLink;
 			},
-			filterTags: array => {
+			filterRepeated: array => {
 				var uniqueTags = [];
 				return array.filter(tag => {
+					if(!tag || tag == '') return false;
 					if (!uniqueTags.includes(tag)) {
 						uniqueTags.push(tag);
 						return true;
@@ -326,20 +330,21 @@ const getState = ({ getStore, setStore }) => {
 				});
 				return technologies;
 			},
-			concatLabels: labelsArray => {
-				let labels = [];
-				labelsArray.forEach(label => {
-					labels.push(label.name);
-				});
-				return labels;
-			},  
-			
-			flatten: arr => {
-				var flat = [];
-				for (var i = 0; i < arr.length; i++) {
-					flat.concat(arr[i]);
+			emojify: (tag) => emoji.emojify(tag, (name) => {
+				if(name==='spiral_notepad') return "🗒";
+				return name;
+			}),
+			getLabels: function(arrayOfIssues){
+				var labels = [];
+				if(arrayOfIssues){
+					arrayOfIssues.forEach((issue)=>{
+						labels = labels.concat(issue.labels.map(l => this.emojify(l.name))); 
+					});
+					return labels;	
+				}else{
+					return [];
 				}
-				return flat;
+			
 			}
 		}
 	};
