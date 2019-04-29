@@ -15,19 +15,19 @@ export class Jumbotron extends React.Component {
 						<p className={this.props.pTexClassColOne}>{this.props.pTextFirstCol}</p>
 						<p className={this.props.firstColumnLinkClass}>
 							<Link to="/aboutus">
-								<a className={this.props.linkClassColOne}>{this.props.firstLinkColOneText}</a>
+								<span className={this.props.linkClassColOne}>{this.props.firstLinkColOneText}</span>
 							</Link>
 						</p>
 						<hr className={this.props.hrLineClass} />
 						<p className={this.props.firstColumnLinkClass}>
 							<Link to="/opensource">
-								<a className={this.props.linkClassColOne}> {this.props.secondLinkColOneText}</a>
+								<span className={this.props.linkClassColOne}> {this.props.secondLinkColOneText}</span>
 							</Link>
 						</p>
 						<hr className={this.props.hrLineClass} />
 						<p className={this.props.firstColumnLinkClass}>
 							<Link to="/contributing">
-								<a className={this.props.linkClassColOne}> {this.props.thirdLinkColOneText}</a>
+								<span className={this.props.linkClassColOne}> {this.props.thirdLinkColOneText}</span>
 							</Link>
 						</p>
 						<p className={this.props.smallDescriptionFirstColClass}>
@@ -35,10 +35,8 @@ export class Jumbotron extends React.Component {
 						</p>
 						<div className={this.props.buttonAlignCenterClass}>
 							<Link to="/contributing">
-								<Button
-									classNameButton={this.props.buttonColOneClass}
-									buttonText={this.props.buttonColOneText}
-								/>
+							
+								<button type="button" className="btn btn-outline-success btn-lg greenButton text-dark px-3 px-md-5 py-4">Start Contributing</button>
 							</Link>
 						</div>
 					</div>
@@ -52,7 +50,7 @@ export class Jumbotron extends React.Component {
 						<p className={this.props.pTextClassColTwo}>{this.props.pTextSecondCol}</p>
 						<p className={this.props.linksClassSecondCol}>
 							<Link to="/lessons">
-								<a> {this.props.firstLinkColTwoText}</a>
+								<span> {this.props.firstLinkColTwoText}</span>
 							</Link>
 						</p>
 						<hr className={this.props.hrLineClass} />
@@ -83,7 +81,7 @@ export class Jumbotron extends React.Component {
 
 Jumbotron.propTypes = {
 	jumbotronClass: PropTypes.string,
-	jumbotronTitle: PropTypes.string,
+	jumbotronTitle: PropTypes.func,
 	jumbotronTitleClass: PropTypes.string,
 	firstColumnClass: PropTypes.string,
 	secondColumnClass: PropTypes.string,

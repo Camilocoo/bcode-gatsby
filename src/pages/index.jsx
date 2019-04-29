@@ -34,8 +34,7 @@ class Home extends React.Component {
 					thirdLinkColOneText="Start Collaborating now"
 					smallDescriptionFirstCol="Thanks to the open source contributions we have been able to publish 20 projects that have helped more than 2,000 learners , you can read about the reach and impact of our publications here"
 					smallDescriptionFirstColClass="mt-3 text-secondary"
-					buttonColOneClass="btn btn-outline-success btn-lg greenButton text-dark px-3 px-md-5 py-4"
-					buttonColOneText="Start Contributing"
+					
 					buttonAlignCenterClass=""
 					pTextClassColTwo="lead"
 					pTextSecondCol="We strongly recomend following our learning process in this order"

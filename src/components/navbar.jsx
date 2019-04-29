@@ -43,23 +43,23 @@ class Navbar extends React.Component {
 						<ul className="navbar-nav mr-auto text-center">
 							<li className="nav-item mt-3">
 								<Link to="/lessons" className="nav-link">
-									<a className={`nav-link ${this.state.change && "border-bottom"}`} href="#">
+									<p className={`nav-link ${this.state.change && "border-bottom"}`} >
 										Learn To Code
-									</a>
+									</p>
 								</Link>
 							</li>
 							<li className="nav-item mt-3 ">
 								<Link to="/aboutus" className="nav-link">
-									<a className={`nav-link ${this.state.change && "border-bottom"}`} href="#">
+									<p className={`nav-link ${this.state.change && "border-bottom"}`}>
 										About Us
-									</a>
+									</p>
 								</Link>
 							</li>
 							<li className="nav-item mt-3">
 								<Link to="/opensource" className="nav-link">
-									<a className={`nav-link ${this.state.change && "border-bottom"}`}>
+									<p className={`nav-link ${this.state.change && "border-bottom"}`}>
 										Open Source Projects
-									</a>
+									</p>
 								</Link>
 							</li>
 						</ul>

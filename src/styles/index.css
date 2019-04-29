@@ -24,8 +24,14 @@ a{
 
 .textDecorationGreen{
     color: #28A745 !important;
-    text-decoration: underline;   
+    
 }
+.textDecorationGreen::hover{
+    color: #28A745 !important;
+    text-decoration: underline !important;
+     text-decoration-color: #28A745!important;
+}
+
 
 .textDecoration{
     text-decoration: underline;   

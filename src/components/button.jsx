@@ -4,11 +4,11 @@ import PropTypes from "prop-types";
 export class Button extends React.Component {
 	render() {
 		return (
-			<a rel="noopener" className={this.props.classNameButton} href={this.props.href}>
+			<button rel="noopener" className={this.props.classNameButton} href={this.props.href}>
 				{this.props.buttonText}
 				<br />
 				<small>{this.props.smallText}</small>
-			</a>
+			</button>
 		);
 	}
 }

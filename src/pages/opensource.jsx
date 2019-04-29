@@ -40,7 +40,6 @@ export class OpenSource extends React.Component {
 											return (
 												<Filter
 													label="Tags"
-													withToggler={false}
 													placeholder="Select one or more tags"
 													onChange={d =>
 														this.setState({

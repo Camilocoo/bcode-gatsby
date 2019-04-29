@@ -68,12 +68,13 @@ export class Lessons extends React.Component {
 																selectedTags: d
 															})
 														}
-														options={store.tags?actions.filterRepeated(store.tags).map((tag, index) => {
+															options={store.tags?actions.filterRepeated(store.tags).map((tag, index) => {
 															return {
 																label: tag,
 																value: tag
 															};
 														}):<Loading/>}
+													
 													/>
 												</div>
 												<div className="px-1 pl-1 py-2">
@@ -117,9 +118,10 @@ export class Lessons extends React.Component {
 															<div className="row">
 																<div className="col py-2 text-dark">
 																	{lesson.authors && "Contributors: "}
-																	{lesson.authors && lesson.authors.map(a => (<a 
+																	{lesson.authors && lesson.authors.map((a,k) => (<a 
 																		href={`https://github.com/${a}`}
 																		target="_blank"
+																		key={k}
 																		className="author badge badge-pill badge-light mr-2">@{a}</a>))}
 																</div>
 															</div>
