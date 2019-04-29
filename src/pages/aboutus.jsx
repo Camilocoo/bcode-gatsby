@@ -6,6 +6,7 @@ import Store from "../store/appContext.jsx";
 import "../styles/index.css";
 import Navbar from "../components/navbar.jsx";
 import Footer from "../components/footer.jsx";
+import {  Loading } from "@breathecode/ui-components";
 
 class AboutUs extends React.Component {
 	render() {
@@ -22,7 +23,7 @@ class AboutUs extends React.Component {
 				<div className="px-5 container">
 					<Context.Consumer>
 						{({ store, actions }) => {
-							return <MarkdownParser source={store.markdown} />;
+							return <MarkdownParser source={store.markdown==null?<Loading/>:store.markdown} />;
 						}}
 					</Context.Consumer>
 				</div>

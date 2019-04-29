@@ -47,14 +47,14 @@ export class OpenSource extends React.Component {
 															selectedTechnologies: d
 														})
 													}
-													options={actions
+													options={store.openSource?actions
 														.filterRepeated(actions.concatTechnologies(store.openSource))
 														.map(tech => {
 															return {
 																label: tech,
 																value: tech
 															};
-														})}
+														}):<Loading/>}
 												/>
 											);
 										}}

@@ -68,12 +68,12 @@ export class Lessons extends React.Component {
 																selectedTags: d
 															})
 														}
-														options={actions.filterRepeated(store.tags).map((tag, index) => {
+														options={store.tags?actions.filterRepeated(store.tags).map((tag, index) => {
 															return {
 																label: tag,
 																value: tag
 															};
-														})}
+														}):<Loading/>}
 													/>
 												</div>
 												<div className="px-1 pl-1 py-2">
@@ -99,7 +99,7 @@ export class Lessons extends React.Component {
 									</div>
 								</div>
 
-								{store.lessons === 0 ? <Loading /> : store.lessons
+								{store.lessons == null ? <Loading /> : store.lessons
 									.filter(this.filterByAuthors)
 									.filter(this.filterByTags)
 									.map((lesson, index) => {
@@ -120,7 +120,7 @@ export class Lessons extends React.Component {
 																	{lesson.authors && lesson.authors.map(a => (<a 
 																		href={`https://github.com/${a}`}
 																		target="_blank"
-																		class="author badge badge-pill badge-light mr-2">@{a}</a>))}
+																		className="author badge badge-pill badge-light mr-2">@{a}</a>))}
 																</div>
 															</div>
 															<p className="lead text-dark ">{lesson.subtitle}</p>

@@ -15,7 +15,7 @@ class Navbar extends React.Component {
 		return (
 			<div>
 				<nav className="navbar navbar-expand-lg navbar-light bg-light gradient">
-					<Link to="/home">
+					<Link to="/">
 						<img
 							className="navbar-brand mb-0"
 							src="https://ucarecdn.com/dbe55247-376b-4b81-988e-7dd95f4233b5/-/resize/45x/"

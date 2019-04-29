@@ -8,9 +8,9 @@ const getState = ({ getStore, setStore }) => {
 			issues: null,
 			authors: [],
 			tags: [],
-			lessons: [],
+			lessons: null,
 			events: [],
-			markdown: {},
+			markdown: null,
 			openSource: [
 				{
 					gitIssueUrl: "https://github.com/breatheco-de/breathecode-cli",
