@@ -16,7 +16,7 @@ import Footer from "../components/footer.jsx";
 			selectedLabels: []
 		};
 	}
-	
+
 	filterByTags = issue => {
 		if(this.state.selectedLabels.length == 0) return true;
 		const issueLabels = issue.labels.map(l => l.name);
@@ -25,7 +25,7 @@ import Footer from "../components/footer.jsx";
 		}
 		return false;
 	}
-	
+
 	render() {
 		return (
 			<div>
@@ -45,7 +45,7 @@ import Footer from "../components/footer.jsx";
 									spanClass="h3 text-secondary"
 									spanContent=".md"
 								/>
-								
+
 								<div className="row border-top border-bottom sticky-top bg-white">
 									<div className="container">
 										<div className="row">
@@ -69,7 +69,7 @@ import Footer from "../components/footer.jsx";
 								</div>
 								<div className="container">
 									<div className="row">
-										{store.allIssues ? 
+										{store.allIssues ?
 											store.allIssues.filter(this.filterByTags.bind(this)).map((issue, index) => {
 													return (
 														<div key={index} className="col-12 py-5 ">
