@@ -1,5 +1,5 @@
 .greenButton{
-    background-color: #DFEDD5;    
+    background-color: #DFEDD5;
 
 }
 
@@ -19,12 +19,12 @@
 a{
   background-image: none;
   cursor: pointer;
-  
+
 }
 
 .textDecorationGreen{
     color: #28A745 !important;
-    
+
 }
 .textDecorationGreen::hover{
     color: #28A745 !important;
@@ -34,10 +34,10 @@ a{
 
 
 .textDecoration{
-    text-decoration: underline;   
+    text-decoration: underline;
 }
-  
-  
+
+
 .gradient{
   background-image: linear-gradient(#E9ECEF, #FFFFFF);
 }
@@ -45,7 +45,7 @@ a{
 .btnRED{
     background-color:#ff000000;
     border-color: #ff0000c7 !important;
-    
+
 }
 
 .btnColor{
@@ -92,3 +92,4 @@ a{
     transform: translate(-50%, -50%);
     z-index: 1021;
 }
+

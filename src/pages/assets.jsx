@@ -25,7 +25,7 @@ import { Link } from "gatsby"
 				<Navbar/>
 				<Context.Consumer>
 					{({ store, actions }) => {
-                            console.log(store.assets);
+
 						return (
 							<div>
 								<SmallJumbotron
@@ -43,48 +43,59 @@ import { Link } from "gatsby"
 										<div className="row">
 											<div className="col  d-flex justify-content-start">
 												<div className="px-1 pl-1 py-2">
-													filter
+													<Filter
+													label="Tags"
+													placeholder="Select one or more tags"
+													onChange={d =>
+														console.log(d)
+													}
+													options={[ {
+																label: "tech",
+																value: "tech"
+															}]}
+												    />
 												</div>
 											</div>
 										</div>
 									</div>
 								</div>
                                  <div className="container">
-                                    <div className="row  text-center text-md-left mt-2  p-3">
-                                        <div className="col-12 col-md-2 d-flex justify-content-center align-items-center">
+                                 {store.assets?store.assets.map((asset)=>{
+                                     return(
+                                                    <div className="row  text-center text-md-left mt-2  p-3 paddingLeftZero">
+                                        {asset.url.includes("jpg")?<div className="col-12 col-md-2 d-flex justify-content-center align-items-center">
                                             <img
                                                 className="img-fluid"
-
+                                                src={asset.url?asset.url:""}
                                             />
-                                        </div>
-                                        <div className="col-12 col-md">
+                                        </div>:" "}
+                                        <div className="col-12 col-md pl-1">
                                             <div className="row">
                                                 <div className="col-12">
-                                                    <div><p className=" h2 text-dark">asdfasdf</p></div>
+                                                    <div><p className=" h2 text-dark">{asset.title?asset.title:"missing title"}</p></div>
                                                 </div>
                                             </div>
                                             <div className="row">
                                                 <div className="col-12">
                                                     <small className="text-muted lead font-italic">
-                                                        in the following technologies:
-                                                        <span className="linkDecoration">
-                                                            &nbsp;
-                                                            asdfasdf
-                                                        </span>
+                                                        in the following technlogies:
+
                                                     </small>
                                                 </div>
                                             </div>
                                             <div className="row mb-2">
                                                 <div className="col-12 p-2 col-md">
-                                                    <span className="author badge badge-pill badge-light mr-2"> dfas</span>
-                                                    <span className="author badge badge-pill badge-light mr-2">asdfr</span>
-                                                    <span className="author badge badge-pill badge-light mr-2">With Video</span>
+                                                      {asset.technologies?asset.technologies.map((tech)=>{
+                                                            return(
+                                                                <span className="author badge badge-pill badge-light mr-2"> {tech}</span>
+                                                            )
+                                                        }):" "}
                                                 </div>
                                                 <div className="col-12 col-md-3 d-flex justify-content-md-end">
                                                     <div className="row mx-auto">
                                                         <div className="col-12 d-flex align-items-end">
                                                             <Link className="btn btn-outline-primary buttonHeight  px-2 ">
-                                                                README.md
+                                                                View more
                                                             </Link>
                                                         </div>
                                                     </div>
@@ -92,6 +103,9 @@ import { Link } from "gatsby"
                                             </div>
                                         </div>
                                     </div>
+                                     );
+                                 }):"loading......."}
+
                                 </div>
 							</div>
 						);
