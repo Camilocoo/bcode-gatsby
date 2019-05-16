@@ -62,7 +62,8 @@ import { Link } from "gatsby"
                                  <div className="container">
                                  {store.assets?store.assets.map((asset)=>{
                                      return(
-                                                    <div className="row  text-center text-md-left mt-2  p-3 paddingLeftZero">
+                                <div>
+                                    <div className="row  text-center text-md-left mt-2  p-3 paddingLeftZero">
                                         {asset.url.includes("jpg")?<div className="col-12 col-md-2 d-flex justify-content-center align-items-center">
                                             <img
                                                 className="img-fluid"
@@ -102,6 +103,8 @@ import { Link } from "gatsby"
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
+                                    <hr className="my-4" />
                                     </div>
                                      );
                                  }):<Loading/>}
