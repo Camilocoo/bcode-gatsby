@@ -94,9 +94,9 @@ import { Link } from "gatsby"
                                                 <div className="col-12 col-md-3 d-flex justify-content-md-end">
                                                     <div className="row mx-auto">
                                                         <div className="col-12 d-flex align-items-end">
-                                                            <Link className="btn btn-outline-primary buttonHeight  px-2 ">
+                                                            <a href={asset.url?asset.url:""} className="btn btn-outline-primary buttonHeight  px-2 ">
                                                                 View more
-                                                            </Link>
+                                                            </a>
                                                         </div>
                                                     </div>
                                                 </div>
