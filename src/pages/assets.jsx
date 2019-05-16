@@ -14,18 +14,10 @@ import { Link } from "gatsby"
 	constructor() {
 		super();
 		this.state = {
-			selectedLabels: []
+
 		};
 	}
 
-	filterByTags = issue => {
-		if(this.state.selectedLabels.length == 0) return true;
-		const issueLabels = issue.labels.map(l => l.name);
-		for(let i = 0; i<this.state.selectedLabels.length;i++){
-			if(issueLabels.includes(this.state.selectedLabels[i].value)) return true;
-		}
-		return false;
-	}
 
 	render() {
 		return (
