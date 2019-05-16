@@ -104,7 +104,7 @@ import { Link } from "gatsby"
                                         </div>
                                     </div>
                                      );
-                                 }):"loading......."}
+                                 }):<Loading/>}
 
                                 </div>
 							</div>
