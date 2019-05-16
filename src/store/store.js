@@ -3,6 +3,7 @@ import emoji from 'node-emoji';
 const getState = ({ getStore, setStore }) => {
 	return {
 		store: {
+            assets:null,
 		    allIssues:null,
 		    issueLabels:null,
 			issues: null,
@@ -338,13 +339,13 @@ const getState = ({ getStore, setStore }) => {
 				var labels = [];
 				if(arrayOfIssues){
 					arrayOfIssues.forEach((issue)=>{
-						labels = labels.concat(issue.labels.map(l => this.emojify(l.name))); 
+						labels = labels.concat(issue.labels.map(l => this.emojify(l.name)));
 					});
-					return labels;	
+					return labels;
 				}else{
 					return [];
 				}
-			
+
 			}
 		}
 	};

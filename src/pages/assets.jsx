@@ -25,7 +25,7 @@ import { Link } from "gatsby"
 				<Navbar/>
 				<Context.Consumer>
 					{({ store, actions }) => {
-
+                            console.log(store.assets);
 						return (
 							<div>
 								<SmallJumbotron

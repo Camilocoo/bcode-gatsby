@@ -61,20 +61,31 @@ const Store = PassedComponent => {
 					store.allIssues =  [];
 					for(let key in issues){
 					    const aux = store.allIssues.concat(issues[key]);
-					    store.allIssues = aux.map(i => Object.assign(i, { 
-					    	labels: i.labels.map((l => Object.assign(l, { 
-					    		name: this.state.actions.emojify(l.name) 
+					    store.allIssues = aux.map(i => Object.assign(i, {
+					    	labels: i.labels.map((l => Object.assign(l, {
+					    		name: this.state.actions.emojify(l.name)
 					    	})))
 					    }));
 					    store.issueLabels = this.state.actions.filterRepeated(this.state.actions.getLabels(aux));
 					}
-					
-					
+
+
 					this.setState({
 						store
 					});
 				})
 				.catch(err => console.error(err));
+            fetch(HOST+"resources/all")
+				.then(res => res.json())
+				.then(assets => {
+					let { store } = this.state;
+					store.assets = assets;
+					this.setState({
+						store
+					});
+				})
+				.catch(err => console.error(err));
+
 		}
 
 		render() {
