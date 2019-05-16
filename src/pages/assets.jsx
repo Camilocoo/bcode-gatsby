@@ -114,7 +114,7 @@ import { Link } from "gatsby"
 						);
 					}}
 				</Context.Consumer>
-				<Footer/>
+				 <Footer/>
 			</div>
 		);
 	}
