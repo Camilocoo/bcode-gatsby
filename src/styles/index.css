@@ -72,8 +72,9 @@ a{
 }
 
 .options-component{
-     background-color: white;
-        z-index: 20;
+    background-color: white;
+    z-index: 20;
+
 }
 
 
@@ -91,5 +92,9 @@ a{
     left: 50vw;
     transform: translate(-50%, -50%);
     z-index: 1021;
+}
+
+.bc-filter .options-component{
+ min-width: 660px!important;
 }
 

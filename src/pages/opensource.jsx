@@ -85,27 +85,40 @@ export class OpenSource extends React.Component {
 											<div key={index} className="col-12">
 												<div className="row py-2">
 													<div className="col text  pt-3">
-														<div className="row">
-															<div className="col-12 d-flex justify-content-end">
-																<IssueFetch
-																	issuesFunction={actions.issuesFeed}
-																	gitIssueUrl={project.gitIssueUrl}
-																	issueLink={project.gitIssueUrl}
-																/>
-															</div>
-														</div>
-														<a className="h2 text-dark">{project.title}</a>
+                                                    <div className ="row">
+                                                        <div className="col">
+                                                            <a 
+                                                                href={actions.issuesFeed(
+                                                                        null,
+                                                                        null,
+                                                                        null,
+                                                                        project.gitIssueUrl
+                                                                    )} 
+                                                                className="h2 text-dark">{project.title}
+                                                             </a>
+                                                        </div>
+                                                            <div className="row">
+                                                                <div className="col">
+                                                                    <IssueFetch
+                                                                        issuesFunction={actions.issuesFeed}
+                                                                        gitIssueUrl={project.gitIssueUrl}
+                                                                        issueLink={project.gitIssueUrl}
+                                                                    />
+                                                                </div>
+                                                            </div>
+                                                        </div>
 														<p className="lead mt-3">{project.description}</p>
 														<div className="row mb-2 pl-2">
-															{project.technologies.map((technologie, index) => {
-																return (
-																	<div key={index} className={technologie.color}>
-																		{technologie.tech}
-																	</div>
-																);
-															})}
-														</div>
-														<div>
+                                                            <div className="col pl-0">
+                                                                {project.technologies.map((technologie, index) => {
+                                                                    return (
+                                                                        <div key={index} className="author badge badge-pill badge-light mr-2">
+                                                                            {technologie.tech}
+                                                                        </div>
+                                                                    );
+                                                                })}
+                                                            </div>
+                                                            	<div className="ml-auto mr-3">
 															<a
 																href={actions.issuesFeed(
 																	null,
@@ -114,7 +127,7 @@ export class OpenSource extends React.Component {
 																	project.gitIssueUrl
 																)}
 																rel="noopener"
-																className="btn btn-outline-success buttonHeight mr-2">
+																className="btn btn-outline-success buttonHeight mr-2 ">
 																Project
 															</a>
 															<a
@@ -127,6 +140,7 @@ export class OpenSource extends React.Component {
 																className="btn btn-outline-primary buttonHeight  px-2 ">
 																README.md
 															</a>
+														</div>
 														</div>
 													</div>
 												</div>
@@ -143,7 +157,7 @@ export class OpenSource extends React.Component {
 		);
 	}
 }
-export default Store(OpenSource) 
+export default Store(OpenSource)
 
 class IssueFetch extends React.Component {
 	constructor(props) {
@@ -175,7 +189,7 @@ class IssueFetch extends React.Component {
 				<a
 					target="_blank"
 					href={this.props.issuesFunction(null, this.props.issueLink)}
-					className="btn d-flex btnRED text-danger rounded btn-sm mr-0 mr-md-5 mb-4 mb-sm-0 my-1">
+					className="btn btnRED text-danger rounded btn-sm mr-0 mr-md-3 mb-4 mb-sm-0  py-2">
 					<i className="fas fa-exclamation-triangle" />
 					&nbsp;
 					{items.length}

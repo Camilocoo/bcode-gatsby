@@ -49,7 +49,7 @@ import Footer from "../components/footer.jsx";
 								<div className="row border-top border-bottom sticky-top bg-white">
 									<div className="container">
 										<div className="row">
-											<div className="col  d-flex justify-content-start">
+											<div className="col d-flex justify-content-start">
 												<div className="px-1 pl-1 py-2">
 													<Filter
 														label="Label"
@@ -76,7 +76,7 @@ import Footer from "../components/footer.jsx";
 															<a
 																target="_blank"
 																href={issue["html_url"] ? issue["html_url"] : ""}
-																className="h3 text-primary  text-left">
+																className="h2 text-dark  text-left">
 																{issue.title}
 															</a>
 															<p className="lead  text-left text-secondary">
@@ -92,18 +92,21 @@ import Footer from "../components/footer.jsx";
 																</i>
 															</p>
 															<div className="row pl-2">
-																{issue.labels
-																	? issue.labels.map((label, index) => {
-																			return (
-																				<div
-																					key={index}
-																					className="col-1.5 px-2 mx-1 rounded tagsCol3">
-																					{label.name}
-																				</div>
-																			);
-																	  })
-																	: <Loading/>}
-															</div>
+                                                                <div className="col">
+                                                                    {issue.labels
+                                                                        ? issue.labels.map((label, index) => {
+                                                                                return (
+                                                                                    <div
+                                                                                        key={index}
+                                                                                        className="author badge badge-pill badge-light mr-2">
+                                                                                        {label.name}
+                                                                                    </div>
+                                                                                );
+                                                                        })
+                                                                        : <Loading/>}
+															    </div>
+                                                                <a href={issue["html_url"] ? issue["html_url"] : ""} target="_blank"  className="btn btn-outline-primary mr-3">Solve issue</a>
+                                                            </div>
 															<hr className="my-4" />
 														</div>
 													);

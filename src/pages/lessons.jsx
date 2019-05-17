@@ -43,7 +43,7 @@ export class Lessons extends React.Component {
 					{({ store, actions }) => {
 						return (
 							<div>
-									
+
 								<SmallJumbotron
 									jumboClass="jumbotron jumbotron-fluid mb-0 bg-white"
 									containerClass="pl-4  container"
@@ -74,7 +74,7 @@ export class Lessons extends React.Component {
 																value: tag
 															};
 														}):<Loading/>}
-													
+
 													/>
 												</div>
 												<div className="px-1 pl-1 py-2">
@@ -118,7 +118,7 @@ export class Lessons extends React.Component {
 															<div className="row">
 																<div className="col py-2 text-dark">
 																	{lesson.authors && "Contributors: "}
-																	{lesson.authors && lesson.authors.map((a,k) => (<a 
+																	{lesson.authors && lesson.authors.map((a,k) => (<a
 																		href={`https://github.com/${a}`}
 																		target="_blank"
 																		key={k}
@@ -126,16 +126,19 @@ export class Lessons extends React.Component {
 																</div>
 															</div>
 															<p className="lead text-dark ">{lesson.subtitle}</p>
-															<div className="row pl-2">
+															<div className="row ">
+                                                                <div className="col pl-1">
 																{lesson.tags.map((tag, index) => {
 																	return (
 																		<div
 																			key={index}
-																			className="col-1.5 px-2 mx-1 rounded tagsCol3">
+																			className="author badge badge-pill badge-light mr-2">
 																			{tag}
 																		</div>
 																	);
 																})}
+                                                                </div>
+                                                                <a href={actions.lessonUrl(lesson)}  className="btn btn-outline-primary ml-auto mr-3">Read lesson</a>
 															</div>
 														</div>
 													</div>
@@ -154,4 +157,4 @@ export class Lessons extends React.Component {
 	}
 }
 
-export default Store(Lessons) 
+export default Store(Lessons)

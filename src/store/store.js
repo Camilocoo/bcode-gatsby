@@ -310,7 +310,7 @@ const getState = ({ getStore, setStore }) => {
 			filterRepeated: array => {
 				var uniqueTags = [];
 				return array.filter(tag => {
-					if(!tag || tag == '') return false;
+					if(!tag || tag === '') return false;
 					if (!uniqueTags.includes(tag)) {
 						uniqueTags.push(tag);
 						return true;
