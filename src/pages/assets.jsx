@@ -146,7 +146,7 @@ import { Link } from "gatsby"
                                         <div className="col-12 col-md pl-1">
                                             <div className="row">
                                                 <div className="col-12">
-                                                    <div><p className=" h2 text-dark">{asset.title?asset.title:"missing title"}</p></div>
+                                                    <div><a href={asset.url?asset.url:""} className=" h2 text-dark">{asset.title?asset.title:"missing title"}</a></div>
                                                 </div>
                                             </div>
                                             <div className="row">
