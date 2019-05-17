@@ -80,6 +80,9 @@ const Store = PassedComponent => {
 				.then(assets => {
 					let { store } = this.state;
 					store.assets = assets;
+                    store.assetTypesTags = this.state.actions.filterRepeated(assets.map(a=>a.types).flat(1));
+                    store.assetTechnologieTags=this.state.actions.filterRepeated(assets.map(a=>a.technologies).flat(1));
+                    store.assetTopicTags = this.state.actions.filterRepeated(assets.map(a=>a.topics).flat(1));
 					this.setState({
 						store
 					});

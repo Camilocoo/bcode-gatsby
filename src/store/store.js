@@ -4,6 +4,9 @@ const getState = ({ getStore, setStore }) => {
 	return {
 		store: {
             assets:null,
+            assetTechnologieTags:null,
+            assetTopicTags:null,
+            assetTypesTags:null,
 		    allIssues:null,
 		    issueLabels:null,
 			issues: null,

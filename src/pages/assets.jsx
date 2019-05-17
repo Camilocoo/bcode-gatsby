@@ -14,7 +14,9 @@ import { Link } from "gatsby"
 	constructor() {
 		super();
 		this.state = {
-
+            selectedTypeTags:[],
+            selectedTechTags:[],
+            selectedTopicTags:[]
 		};
 	}
 
@@ -25,7 +27,9 @@ import { Link } from "gatsby"
 				<Navbar/>
 				<Context.Consumer>
 					{({ store, actions }) => {
-
+                        console.log(store.assetTypesTags);
+                        console.log(store.assetTechnologieTags);
+                        console.log(store.assetTopicTags);
 						return (
 							<div>
 								<SmallJumbotron
@@ -44,15 +48,62 @@ import { Link } from "gatsby"
 											<div className="col  d-flex justify-content-start">
 												<div className="px-1 pl-1 py-2">
 													<Filter
-													label="Tags"
-													placeholder="Select one or more tags"
+													label="technologie"
+													placeholder="Filter By Technologie"
 													onChange={d =>
-														console.log(d)
+														this.setState({
+															selectedTechTags: d
+														})
 													}
-													options={[ {
-																label: "tech",
-																value: "tech"
-															}]}
+													options={store.assetTechnologieTags?store.assetTechnologieTags.map((tech)=>{
+                                                        return{
+                                                                label: tech,
+																value: tech
+                                                        }
+                                                    }):[{
+                                                                label:"loading" ,
+																value: "loading"
+                                                        }]}
+												    />
+												</div>
+                                                <div className="px-1 pl-1 py-2">
+													<Filter
+													label="Topic"
+													placeholder="Filter By Topic"
+													onChange={d =>
+														this.setState({
+															selectedTopicTags: d
+														})
+													}
+													options={store.assetTopicTags?store.assetTopicTags.map((topic)=>{
+                                                        return{
+                                                                label: topic,
+																value: topic
+                                                        }
+                                                    }):[{
+                                                                label:"loading" ,
+																value: "loading"
+                                                        }]}
+												    />
+												</div>
+                                                <div className="px-1 pl-1 py-2">
+													<Filter
+													label="Topic"
+													placeholder="Filter By Type"
+													onChange={d =>
+														this.setState({
+															selectedTypeTags: d
+														})
+													}
+													options={store.assetTypesTags?store.assetTypesTags.map((type)=>{
+                                                        return{
+                                                                label: type,
+																value: type
+                                                        }
+                                                    }):[{
+                                                                label:"loading" ,
+																value: "loading"
+                                                        }]}
 												    />
 												</div>
 											</div>
