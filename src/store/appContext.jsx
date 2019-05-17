@@ -75,7 +75,7 @@ const Store = PassedComponent => {
 					});
 				})
 				.catch(err => console.error(err));
-            fetch(HOST+"resources/all")
+             fetch(HOST+"resources/all")
 				.then(res => res.json())
 				.then(assets => {
 					let { store } = this.state;

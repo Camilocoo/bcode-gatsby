@@ -20,6 +20,28 @@ import { Link } from "gatsby"
 		};
 	}
 
+    filterByTech = asset => {
+		if (this.state.selectedTechTags.length == 0) return true;
+		for (let i = 0; i < this.state.selectedTechTags.length; i++) {
+			if (asset.technologies.includes(this.state.selectedTechTags[i].value)) return true;
+		}
+		return false;
+	}
+    filterByTopic = asset => {
+		if (this.state.selectedTopicTags.length == 0) return true;
+		for (let i = 0; i < this.state.selectedTopicTags.length; i++) {
+			if (asset.topics.includes(this.state.selectedTopicTags[i].value)) return true;
+		}
+		return false;
+	}
+    filterByType = asset => {
+		if (this.state.selectedTypeTags.length == 0) return true;
+		for (let i = 0; i < this.state.selectedTypeTags.length; i++) {
+			if (asset.types!==null?asset.types.includes(this.state.selectedTypeTags[i].value):"") return true;
+		}
+		return false;
+	}
+
 
 	render() {
 		return (
@@ -111,7 +133,7 @@ import { Link } from "gatsby"
 									</div>
 								</div>
                                  <div className="container">
-                                 {store.assets?store.assets.map((asset)=>{
+                                 {store.assets?store.assets.filter(this.filterByTech).filter(this.filterByTopic).filter(this.filterByType).map((asset)=>{
                                      return(
                                 <div>
                                     <div className="row  text-center text-md-left mt-2  p-3 paddingLeftZero">
