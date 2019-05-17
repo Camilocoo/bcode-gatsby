@@ -72,7 +72,7 @@ import Footer from "../components/footer.jsx";
 										{store.allIssues ?
 											store.allIssues.filter(this.filterByTags.bind(this)).map((issue, index) => {
 													return (
-														<div key={index} className="col-12 py-5 ">
+														<div key={index} className="col-12 py-3 ">
 															<a
 																target="_blank"
 																href={issue["html_url"] ? issue["html_url"] : ""}
@@ -92,7 +92,7 @@ import Footer from "../components/footer.jsx";
 																</i>
 															</p>
 															<div className="row pl-2">
-                                                                <div className="col">
+                                                                <div className="col pl-0">
                                                                     {issue.labels
                                                                         ? issue.labels.map((label, index) => {
                                                                                 return (
