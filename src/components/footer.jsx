@@ -9,13 +9,13 @@ export class Footer extends Component {
 				<footer className="footer gradientFooter">
 					<div className="container pt-5">
 						<div className="row">
-							<div className="col-12 text-center"><a className="text-dark" href="mailto:info@breatheco.de">Contact Us</a></div>
+							<div className="col-12 text-center"><a className="text-secondary" href="mailto:info@breatheco.de">Contact Us</a></div>
 						</div>
 						<div className="row text-center">
 							<div className="col-12">
-								Copyright ©{" "}
-								<script type="text/javascript">document.write(new Date().getFullYear());</script>. All
-								right reserved
+								© {new Date().getFullYear()}, Built By
+            {` `}
+            <a href="https://www.breatheco.de">BreatheCode</a>
 							</div>
 						</div>
 					</div>

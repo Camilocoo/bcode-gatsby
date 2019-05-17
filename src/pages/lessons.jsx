@@ -34,6 +34,15 @@ export class Lessons extends React.Component {
 		}
 		return false;
 	};
+    replaceDraft = lessonLink =>{
+            if (lessonLink.includes("[draft]")&&lessonLink.includes("en")){
+                let newLink = lessonLink.replace("[draft]","");
+                return newLink;
+            }
+            else{
+                return lessonLink
+            }
+    };
 
 	render() {
 		return (
@@ -140,7 +149,7 @@ export class Lessons extends React.Component {
 																	);
 																})}
                                                                 </div>
-                                                                <a href={actions.lessonUrl(lesson)}  className="btn btn-outline-primary ml-auto mr-3">Read lesson</a>
+                                                                <a href={this.replaceDraft(actions.lessonUrl(lesson))}  className="btn btn-outline-primary ml-auto mr-3">Read lesson</a>
 															</div>
 														</div>
 													</div>
