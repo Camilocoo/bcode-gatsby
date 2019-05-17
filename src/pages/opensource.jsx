@@ -28,7 +28,7 @@ export class OpenSource extends React.Component {
 					pClass="lead  text-left"
 					pContent="The following projects is the list of the most important projects breatheco.de is working right now"
 					spanClass="h3 text-secondary"
-					spanContent=".md"
+					spanContent="md"
 				/>
 				<div className="row sticky-top bg-white border-top border-bottom">
 					<div className="container">

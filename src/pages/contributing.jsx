@@ -43,7 +43,7 @@ import Footer from "../components/footer.jsx";
 									pClass="lead  text-left"
 									pContent="To start contributing click one ot the issues to learn more details, use the tags to narrown your search depending on your skils"
 									spanClass="h3 text-secondary"
-									spanContent=".md"
+									spanContent="md"
 								/>
 
 								<div className="row border-top border-bottom sticky-top bg-white">

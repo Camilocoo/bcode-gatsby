@@ -8,8 +8,10 @@ export class SmallJumbotron extends React.Component {
 				<div className={this.props.containerClass}>
 					<h1 className={this.props.headerClass}>
 						{this.props.headerText}
-						<span className={this.props.spanClass}>{this.props.spanContent}</span>
+                        <span className="text-primary h3">.</span>
+						<span className="h3 text-secondary">{this.props.spanContent}</span>
 					</h1>
+                    
 					<p className={this.props.pClass}>{this.props.pContent}</p>
 				</div>
 			</div>

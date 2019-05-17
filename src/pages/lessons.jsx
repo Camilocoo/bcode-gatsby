@@ -54,6 +54,8 @@ export class Lessons extends React.Component {
 										concepts and have been published by breathe code
 										members, search for a partiulars lesson using the
 										filters bellow"
+                                    spanClass="h3 text-secondary"
+                                    spanContent="md"
 								/>
 								<div className="row sticky-top bg-white border-top border-bottom">
 									<div className="container">
